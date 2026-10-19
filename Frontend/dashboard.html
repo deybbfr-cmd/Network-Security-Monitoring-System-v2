@@ -3,14 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NetWatch - Network Security Monitoring System</title>
+    <meta name="theme-color" content="#10151d">
+    <title>NetWatch — Network Security Monitoring</title>
     <link rel="stylesheet" href="./dashboard.css">
 </head>
 <body>
-    <header class="topbar">
-        <div class="brand">
-            <h1>NetWatch<small> - Network Security Monitoring</small></h1>
-        </div>
-    </header>
+    <main class="dashboard">
+        <header class="topbar">
+            <div class="brand">
+                <h1><span class="brand-mark" aria-hidden="true">N</span> NetWatch</h1>
+                <p>Network Security Monitoring</p>
+            </div>
+            <div class="service-control">
+                <span class="status"><span class="status-dot" aria-hidden="true">●</span> Monitoring paused</span>
+                <button class="start-button" type="button">Start monitoring</button>
+            </div>
+        </header>
+
+        <section class="metrics" aria-label="Network overview">
+            <article class="metric"><h2>ACTIVE CONNECTIONS</h2><p>248</p><span class="metric-note">Across 18 devices</span></article>
+            <article class="metric"><h2>DATA TRANSFERRED</h2><p>1.84 <small>GB</small></p><span class="metric-note">Today</span></article>
+            <article class="metric alert-count"><h2>SECURITY ALERTS</h2><p>03</p><span class="metric-note">2 require attention</span></article>
+            <article class="metric"><h2>NETWORK HEALTH</h2><p class="health-value">98.6<small>%</small></p><span class="metric-note">All systems operational</span></article>
+        </section>
+
+        <section class="dashboard-grid" aria-label="Network activity and alerts">
+            <div class="left-column">
+                <article class="panel traffic-panel">
+                    <div class="panel-heading"><h2>Network traffic</h2><span class="panel-meta">Last 60 minutes</span></div>
+                    <div class="chart-space">
+                        <div class="chart-legend"><span><i class="legend-dot inbound"></i>Inbound</span><span><i class="legend-dot outbound"></i>Outbound</span></div>
+                        <svg class="traffic-chart" viewBox="0 0 900 130" preserveAspectRatio="none" role="img" aria-label="Network traffic fluctuating over the last hour">
+                            <defs><linearGradient id="inboundFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3987ff" stop-opacity=".28"/><stop offset="1" stop-color="#3987ff" stop-opacity="0"/></linearGradient><linearGradient id="outboundFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#35d0b0" stop-opacity=".16"/><stop offset="1" stop-color="#35d0b0" stop-opacity="0"/></linearGradient></defs>
+                            <path class="grid-line" d="M0 25H900 M0 60H900 M0 95H900"/>
+                            <path fill="url(#inboundFill)" d="M0 91 L45 82 90 87 135 58 180 69 225 49 270 61 315 35 360 53 405 44 450 69 495 52 540 57 585 30 630 42 675 24 720 38 765 17 810 32 855 12 900 25 V130H0Z"/>
+                            <path class="inbound-line" d="M0 91 L45 82 90 87 135 58 180 69 225 49 270 61 315 35 360 53 405 44 450 69 495 52 540 57 585 30 630 42 675 24 720 38 765 17 810 32 855 12 900 25"/>
+                            <path fill="url(#outboundFill)" d="M0 108 L45 101 90 105 135 91 180 96 225 78 270 89 315 72 360 82 405 75 450 90 495 81 540 85 585 66 630 77 675 61 720 72 765 54 810 66 855 50 900 57 V130H0Z"/>
+                            <path class="outbound-line" d="M0 108 L45 101 90 105 135 91 180 96 225 78 270 89 315 72 360 82 405 75 450 90 495 81 540 85 585 66 630 77 675 61 720 72 765 54 810 66 855 50 900 57"/>
+                        </svg>
+                        <div class="chart-labels"><span>60 min ago</span><span>45 min</span><span>30 min</span><span>15 min</span><span>Now</span></div>
+                    </div>
+                </article>
+
+                <article class="panel connections">
+                    <div class="panel-heading"><h2>Active connections</h2><div class="filters"><button class="filter-button active" type="button">All</button><button class="filter-button" type="button">Inbound</button><button class="filter-button" type="button">Outbound</button></div></div>
+                    <div class="table-space"><table class="connection-table"><thead><tr><th>DEVICE / ADDRESS</th><th>TYPE</th><th>DATA</th><th>STATUS</th></tr></thead><tbody>
+                        <tr><td><span class="device-icon">PC</span><span><strong>Workstation-01</strong><small>192.168.1.24</small></span></td><td><span class="type-pill inbound-pill">Inbound</span></td><td>24.8 MB</td><td><span class="connection-status"><i></i>Secure</span></td></tr>
+                        <tr><td><span class="device-icon phone-icon">PH</span><span><strong>Mobile-Andrea</strong><small>192.168.1.37</small></span></td><td><span class="type-pill outbound-pill">Outbound</span></td><td>8.2 MB</td><td><span class="connection-status"><i></i>Secure</span></td></tr>
+                        <tr><td><span class="device-icon server-icon">SV</span><span><strong>Cloud backup</strong><small>34.120.54.12</small></span></td><td><span class="type-pill outbound-pill">Outbound</span></td><td>132.6 MB</td><td><span class="connection-status"><i></i>Secure</span></td></tr>
+                        <tr><td><span class="device-icon camera-icon">IoT</span><span><strong>Office camera</strong><small>192.168.1.52</small></span></td><td><span class="type-pill inbound-pill">Inbound</span></td><td>3.1 MB</td><td><span class="connection-status"><i></i>Secure</span></td></tr>
+                    </tbody></table></div>
+                    <div class="table-footer">Showing 4 of 248 connections <button type="button">View all <span aria-hidden="true">→</span></button></div>
+                </article>
+            </div>
+
+            <aside class="panel alerts">
+                <div class="panel-heading"><h2>Recent alerts</h2><span class="alert-counter">3</span></div>
+                <div class="alert-list">
+                    <article class="alert-item critical"><span class="alert-icon">!</span><div><div class="alert-title">Unusual outbound traffic</div><p>Workstation-01 sent more data than usual.</p><span class="alert-time">HIGH · 2 minutes ago</span></div></article>
+                    <article class="alert-item warning"><span class="alert-icon">↗</span><div><div class="alert-title">New device connected</div><p>Unknown device joined the local network.</p><span class="alert-time">MEDIUM · 18 minutes ago</span></div></article>
+                    <article class="alert-item info"><span class="alert-icon">✓</span><div><div class="alert-title">Firewall rules updated</div><p>Network protection rules are up to date.</p><span class="alert-time">INFO · 1 hour ago</span></div></article>
+                </div>
+                <button class="all-alerts" type="button">View all alerts <span aria-hidden="true">→</span></button>
+            </aside>
+        </section>
+        <footer class="page-footer"><span><i class="footer-dot"></i> Local network status</span><span>Last updated just now</span></footer>
+    </main>
 </body>
 </html>
