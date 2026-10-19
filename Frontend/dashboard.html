@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,68 +7,8 @@
     <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
-    <header class="topbar">
-        <div class="brand">
-            <h1>NetWatch</h1>
-            <p>Network Security Monitoring System</p>
-        </div>
-        <div class="service-control">
-            <span class="status"><span class="status-dot" aria-hidden="true">â—</span>Not Running</span>
-            <button class="start-button" type="button">Start Service</button>
-        </div>
+    <header>
+        <h1>NetWatch<small> - Network Security Monitoring</small></h1>
     </header>
-
-    <main>
-        <section class="metrics" aria-label="Network summary">
-            <article class="metric">
-                <h2>Packets per second</h2>
-                <p>0</p>
-            </article>
-            <article class="metric">
-                <h2>Active connections</h2>
-                <p>0</p>
-            </article>
-            <article class="metric alert-count">
-                <h2>Open alerts</h2>
-                <p>0</p>
-            </article>
-            <article class="metric">
-                <h2>Blocked IPs</h2>
-                <p>0</p>
-            </article>
-        </section>
-
-        <section class="dashboard-grid" aria-label="Network activity">
-            <div class="left-column">
-                <section class="panel traffic">
-                    <div class="panel-heading">
-                        <h2>Traffic</h2>
-                        <span class="panel-meta">last 60 seconds</span>
-                    </div>
-                    <div class="chart-space" aria-label="Traffic chart"></div>
-                </section>
-
-                <section class="panel connections">
-                    <div class="panel-heading">
-                        <h2>Connections</h2>
-                        <div class="filters" aria-label="Connection filters">
-                            <button class="filter-button" type="button">All</button>
-                            <button class="filter-button active" type="button">Suspicious</button>
-                        </div>
-                    </div>
-                    <div class="table-space"></div>
-                </section>
-            </div>
-
-            <section class="panel alerts">
-                <div class="panel-heading">
-                    <h2>Alerts</h2>
-                    <span class="panel-meta">58 total</span>
-                </div>
-                <div class="chart-space" aria-label="Alerts list"></div>
-            </section>
-        </section>
-    </main>
 </body>
 </html>
-
